@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>反正我很閒</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+
+            /* height: 3000px; */
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        ul {
+            padding: 0;
+            margin: 0;
+        }
+
+        ul li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: lightslategrey;
+        }
+
+        .container {
+            width: 1280px;
+            height: 100%;
+            margin: auto;
+        }
+
+        .parallax {
+            background-position: center;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+
+        .bar {
+            height: 80px;
+            background-color: khaki;
+            padding: 5px 0 5px 0;
+        }
+
+        .logo {
+            height: 70px;
+            width: 70px;
+            background-image: url(./image/logo.png);
+            background-size: contain;
+            float: left;
+        }
+
+        .banner {
+            height: 800px;
+
+            background-image: url(./image/封面照片.高畫質.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        nav {
+            height: 100px;
+            background: rgb(199, 197, 174);
+            background: linear-gradient(90deg, rgba(199, 197, 174, 1) 13%, rgba(241, 241, 152, 1) 100%);
+
+            position: sticky;
+            top: 0;
+            left: 0;
+
+            z-index: 99;
+        }
+
+        nav .container {
+            display: flex;
+            align-items: center;
+        }
+
+        nav ul {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .runtext {
+            width: 350px;
+            height: 80px;
+            background-image: url(./image/文字跑馬燈.gif);
+            background-size: contain;
+            margin: auto;
+
+        }
+
+        nav ul li a {
+            display: block;
+            background-color: rgb(253, 253, 252);
+            padding: 20px 0;
+            width: 320px;
+            height: 100px;
+            text-align: center;
+            line-height: 50px;
+            border-right: 1px solid grey;
+
+            font-size: 30px
+        }
+
+        nav ul li a:hover {
+            background-color: khaki;
+        }
+
+
+
+        .sec-1 {
+            width: 100%;
+            /* height: 800px; */
+            background-color: rgb(236, 235, 235);
+        }
+
+
+        .channel-intro {
+            width: 100%;
+            height: 800px;
+            background-color: rgb(245, 245, 241);
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .channel-intro-pic {
+            width: 650px;
+            height: 550px;
+            background-image: url(./image/介紹照片.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .channel-intro-text {
+            width: 500px;
+            height: 550px;
+
+            line-height: 30px;
+            text-align: left;
+            font-size: 20px;
+            color: slategrey;
+
+        }
+
+        #no-border {
+            border: 0;
+        }
+
+        span {
+            color: red;
+        }
+
+        .text {
+            width: 1280px;
+            height: 300px;
+            line-height: 150px;
+            color: rgb(83, 86, 88);
+            font-size: 32px;
+            font-weight: 900;
+
+            display: inline-block;
+
+        }
+
+
+        .mask {
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .middle-pic {
+            width: 100%;
+            /* height: 500px; */
+            background-image: url(./image/頁面照片-3-跟封面同組.jpg);
+
+            text-align: center;
+
+
+
+        }
+
+        .middle-pic-2 {
+            width: 100%;
+            /* height: 500px; */
+            background-image: url(./image/頁面照片-4-跟封面同組.jpg);
+
+            text-align: center;
+            font-size: 36px;
+        }
+
+        .middle-pic-3 {
+            width: 100%;
+            height: 100vh;
+            background-image: url(./image/頁面照片-2-跟封面同組.jpg);
+            background-size: cover;
+        }
+
+
+        .sec-3 {
+            width: 100%;
+            height: 1000px;
+            background-color: rgb(236, 235, 235);
+        }
+
+        .artwork {
+            width: 100%;
+            height: 1000px;
+            background-color: rgb(245, 245, 241);
+        }
+
+        .artwork-grp {
+            display: flex;
+            justify-content: space-between;
+
+        }
+
+        .artwork-1 {
+            width: 400px;
+            height: 500px;
+            padding-top: 30px;
+            font-size: 25px;
+            text-align: left;
+            color: slategrey;
+        }
+
+        .text-r {
+
+            padding-left: 30px;
+
+        }
+
+        .text-l {
+            padding-right: 25px;
+        }
+
+        .artwork-2 {
+            width: 800px;
+            height: 500px;
+
+        }
+
+
+        .artwork-grp:last-child .artwork-1 {
+            order: 1;
+        }
+
+        .sec-4 {
+            width: 100%;
+            height: 800px;
+            background-color: rgb(236, 235, 235);
+        }
+
+        .member {
+            width: 100%;
+            height: 800px;
+            background-color: rgb(245, 245, 241);
+
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            /* padding: 50px 0 0 40px; */
+        }
+
+        .member-pic-grp {
+            width: 1200px;
+            height: 600px;
+
+            display: flex;
+            justify-content: space-between;
+        }
+
+
+        .member-pic {
+            width: 380px;
+            height: 600px;
+            overflow: hidden;
+
+        }
+
+        .member-pic:hover .member-mask {
+            top: 0;
+        }
+
+
+        #pic1 {
+            background-image: url(./image/鍾佳播.jpg);
+            background-size: cover;
+            background-position: center;
+
+            position: relative;
+        }
+
+        #pic2 {
+            background-image: url(./image/樂咖.jpg);
+            background-size: contain;
+            position: relative;
+        }
+
+        #pic3 {
+            background-image: url(./image/飯糰1.jpg);
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+
+        .member-text-grp {
+            width: 1200px;
+            height: 100px;
+
+            display: flex;
+            justify-content: space-between;
+
+
+        }
+
+
+
+        .member-text {
+            width: 380px;
+            height: 100px;
+            background-color: rgb(218, 215, 144);
+            border-radius: 5px;
+
+            text-align: center;
+            line-height: 60px;
+            font-size: 20px;
+            color: grey;
+
+        }
+
+        .member-mask {
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: wheat;
+
+            transition: 0.5s;
+            position: absolute;
+            top: 510px;
+            left: 0;
+            padding: 25px;
+
+            text-align: center;
+        }
+
+        .sec-5 {
+            width: 100%;
+            height: 1000px;
+
+            display: flex;
+        }
+
+        .influence-left {
+            width: 50%;
+            height: 1000px;
+            background-image: url(./image/左_工作區域\ 1-02.jpg);
+            background-size: cover;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .influence-right {
+            width: 50%;
+            height: 1000px;
+            background-image: url(./image/左_工作區域\ 1-01.jpg);
+            background-size: cover;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .influence-text-1 {
+            width: 700px;
+            height: 700px;
+
+            text-align: left;
+
+            padding-top: 185px;
+            font-size: 32px;
+            color: rgb(54, 53, 53);
+        }
+
+        .influence-text-2 {
+            width: 700px;
+            height: 700px;
+
+            text-align: left;
+
+            padding-top: 185px;
+            font-size: 32px;
+            color: rgb(54, 53, 53);
+
+        }
+
+        .text-mask {
+            width: 100%;
+            height: 100%;
+            background-color: whitesmoke;
+            color: gray;
+            opacity: 0;
+            transition: 0.5s;
+        }
+
+        .influence-text-1:hover .text-mask {
+            opacity: 0.7;
+        }
+
+        .influence-text-2:hover .text-mask {
+            opacity: 0.7;
+        }
+
+        footer {
+            width: 100%;
+            height: 100px;
+            background-color: darkkhaki;
+
+            text-align: center;
+            line-height: 100px;
+        }
+
+
+
+
+        @media(max-width: 1280px) {
+            .container {
+                width: 960px;
+            }
+
+            nav ul li a {
+                width: 240px;
+            }
+
+            .sec-1 {
+                /* height: 600px; */
+            }
+
+            .channel-intro {
+                height: 600px;
+            }
+
+            .channel-intro-pic {
+                width: 487.5px;
+                height: 412.5px;
+            }
+
+            .channel-intro-text {
+                width: 375px;
+                height: 412.5px;
+
+                line-height: 22px;
+                font-size: 18px;
+            }
+
+            .text {
+                width: 960px;
+                height: 225px;
+                line-height: 120 px;
+                font-size: 25px;
+            }
+
+            .sec-3 {
+                height: 750px;
+            }
+
+            .artwork {
+                height: 750px;
+            }
+
+            .artwork-1 {
+                width: 300px;
+                height: 375px;
+                padding-top: 10px;
+                font-size: 20px;
+            }
+
+            .artwork-2 {
+                width: 600px;
+                height: 375px;
+            }
+
+            iframe {
+                width: 600px;
+                height: 375px;
+            }
+
+            .sec-4 {
+                height: 600px;
+            }
+
+            .member {
+                height: 600px;
+            }
+
+            .member-pic-grp {
+                width: 900px;
+                height: 450px;
+            }
+
+            .member-pic {
+                width: 285px;
+                height: 450px;
+            }
+
+            .member-text-grp {
+                width: 900px;
+                height: 75px;
+            }
+
+            .member-text {
+                width: 285px;
+                height: 75px;
+                line-height: 28px;
+                font-size: 18px;
+            }
+
+            .member-mask {
+                top: 375px;
+                padding: 10px;
+            }
+
+            .sec-5 {
+                height: 1500px;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                background-color: rgb(236, 235, 235);
+            }
+
+            .influence-left {
+                width: 960px;
+                height: 750px;
+                background-size: cover;
+
+            }
+
+            .influence-right {
+                width: 960px;
+                height: 750px;
+                background-size: cover;
+
+            }
+
+            .influence-text-1 {
+                width: 525px;
+                height: 525px;
+                font-size: 28px;
+                padding-top: 80px;
+            }
+
+            .influence-text-2 {
+                width: 525px;
+                height: 525px;
+                font-size: 28px;
+                padding-top: 80px;
+            }
+
+
+
+
+        }
+
+        @media(max-width: 960px) {
+            .container {
+                width: 100%;
+            }
+
+            .runtext{
+                display: none;
+            }
+
+            .burgerlist{
+                width: 100px;
+                height: 75px;
+                background-image: url(./image/menu.png);
+                background-size: contain;
+                background-position: center;
+                position: relative;
+                left: 0;
+                top: 0;
+                float: left;
+
+            }
+
+            nav {
+                height: 75px;
+                position: relative;
+            }
+
+            nav ul{
+                display: block;
+                position: absolute;
+                top: 75px;
+                display: none;
+                
+            }
+
+            nav ul li a {
+                width: calc(100vw / 4);
+                font-size: 14px;
+                
+            }
+
+            ul:hover{
+                display: block;
+            }
+
+            .burgerlist:hover~ul{
+                display: block;
+            }
+
+            .runtext {
+                float: right;
+            }
+
+            .banner{
+                width: 100%;
+                min-height: 500px;
+                background-position: left;
+            }
+
+
+            .channel-intro {
+                display: flex;
+                flex-wrap: wrap;
+                min-height: 1000px;
+            }
+
+            .channel-intro-pic {
+                width: 100%;
+                min-height: 400px;
+                /* background-size: contain; */
+            }
+
+            .channel-intro-text {
+                width: 100%;
+                min-height: 500px;
+            }
+
+            .text {
+                width: 100%;
+                line-height: 100px;
+            }
+
+            .sec-3 {
+                min-height: 1500px;
+            }
+
+            .artwork-grp {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .text-r {
+                order: 1;
+                text-align: center;
+                padding: 0;
+
+            }
+
+            .text-l {
+                text-align: center;
+                padding: 0;
+
+            }
+
+            iframe {
+                width: 100%;
+            }
+
+            .artwork-1 {
+                width: 100%;
+                padding-top: 5px;
+            }
+
+            .artwork-2 {
+                width: 100%;
+            }
+
+            .sec-4 {
+                min-height: 1500px;
+            }
+
+            .member-pic-grp {
+                width: 100%;
+                flex-wrap: wrap;
+            }
+
+            .member-pic {
+                width: 100%;
+            }
+
+            #pic2{
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center;
+            }
+
+            .member-text-grp {
+                /* width: 100%;
+                height: 50px; */
+                display: none;
+            }
+
+            .member-text {
+                /* width: 100%;
+                background-color: unset; */
+                display: none;
+            }
+
+            .member-mask{
+                font-size: 16px;
+                top: 390px;
+                padding: 10px;
+            }
+
+
+            .influence-left {
+                width: 100%;
+            }
+
+            .influence-right {
+                width: 100%;
+            }
+
+            .middle-pic .text{
+                width: 100%;
+                min-height: 500px;
+                font-size: 18px;
+            }
+
+            .middle-pic-2 .text{
+                min-height: 500px;
+            }
+
+
+
+
+        }
+
+
+
+        #gototop {
+            width: 50px;
+            height: 50px;
+            background-image: url(./image/飯糰2.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+            position: fixed;
+            border-radius: 50%;
+            right: 50px;
+            bottom: 100px;
+            z-index: 10;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="bar">
+            <div class="container">
+                <div class="logo"></div>
+                <div class="runtext"></div>
+            </div>
+        </div>
+        <div class="banner parallax"></div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <div class="burgerlist"></div>
+            <ul>
+                <li><a href="#section1">頻道介紹</a></li>
+                <li><a href="#section3">成名作品</a></li>
+                <li><a href="#section4">成員介紹</a></li>
+                <li><a href="#section5" id="no-border">歷程影響</a></li>
+            </ul>
+        </div>
+    </nav>
+    <main>
+        <section>
+            <div id="section1" class="sec-1">
+                <div class="container">
+                    <div class="channel-intro">
+                        <div class="channel-intro-pic"></div>
+                        <div class="channel-intro-text">
+                            <h3>風格獨具的Youtube頻道「反正我很閒」，2020年初以一支〈電影劇組爆笑雷包〉影片在網路上瘋傳，一夕竄紅。如今他們創造出來的角色，如惡魔貓男、浪漫Duke、卑鄙源之助、台北暴徒已成為梗圖題材；片中的台詞用語，如「啊我就怕被罵」、「人民的法槌」、「量子糾纏」、「浪漫突進」等也成為流行語。而由他們發起的「羅馬競技生死鬥」遊戲，更在校園流傳甚廣，甚至演變成校際的正式競賽。
+                            </h3>
+                            <h3>早期的「反正我很閒」由鍾佳播與陳奕凱（樂咖）主演，猛將是不露面的掌鏡人。三人是高中同學，以多年的搞笑默契開創頻道風格。隨著新成員福臨入團，負責攝影，偶爾以聲出演，四人獨樹一幟的演出及攝影方式，逐步攻上Youtube發燒影片排行。
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <section>
+            <div class="middle-pic parallax">
+                <div class="mask">
+                    <div class="text container">
+                        <p>「這是<span>資本主義的糖衣</span>，在美好經濟自由的謊言中，所包覆名為<span>奴隸制度的毒藥！」</span></p>
+                        <p> ——【人民的法槌】社畜救星！ 教你如何爭取權益，徹底反抗慣老闆！</p>
+                    </div>
+                </div>
+            </div>
+            <div id="section3" class="sec-3 position-relative">
+                <div class="container">
+                    <div class="artwork">
+                        <div class="artwork-grp">
+                            <div class="text-r artwork-1">
+                                <h2>人民的法槌</h2>
+                                <p>其中最知名的影片莫過於人民的法槌，描述了現今社會被資方壓榨的勞工，短短三分鐘的影片道破每個勞工的心聲，今天這隻手不捶倒資本主義的高牆，我這隻手就不放下，讓我們一起戳破資本主義的糖衣吧！
+                                </p>
+                            </div>
+                            <div class="artwork-2">
+                                <iframe width="800" height="500" src="https://www.youtube.com/embed/X61d7PKHphI"
+                                    frameborder="0"
+                                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen></iframe>
+                            </div>
+                        </div>
+
+                        <div class="artwork-grp">
+                            <div class="text-l artwork-1">
+                                <h2>卑鄙源之助</h2>
+                                <p>卑鄙源之助是反正我很閒創造的宇宙其中一個角色，不知道在每個人的生活中裡面，是不是都有這樣一個人，總是佔盡人家便宜，一點羞恥心也沒有，讓人氣得牙癢癢，卻也無法討厭。趣味的角色設定，也在網路上轟動，出現了各式各樣關於卑鄙源之助的迷因。
+                                </p>
+                            </div>
+                            <div class="artwork-2">
+                                <iframe width="800" height="500" src="https://www.youtube.com/embed/WVwlR_vni6k"
+                                    frameborder="0"
+                                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="middle-pic-2 parallax">
+                <div class="mask">
+                    <div class="text container">
+                        <p>我們身在<span>爛泥</span>裡面，卻期待能<span>發芽</span>，這就是爛泥發芽的精神</p>
+                        <p>——鍾佳播</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div id="section4" class="sec-4">
+                <div class="container">
+                    <div class="member">
+                        <div class="member-pic-grp">
+                            <div id="pic1" class="member-pic">
+                                <div class="member-mask">
+                                    <h1>宇宙多種化身</h1>
+                                    <p>同時是浪漫Duke、卑鄙源之助、海龍王彼得、暴徒AKA、惡魔貓男，一年前在哈哈被採訪時，因批判只紙吸管而爆紅，在頻道中則經常扮演擺爛、批判及精神導師的角色。
+                                    </p>
+                                </div>
+                            </div>
+                            <div id="pic2" class="member-pic">
+                                <div class="member-mask">
+                                    <h1>入圍56屆金馬</h1>
+                                    <p>在影片中經常飾演苦悶的、被壓榨的一般老百姓，或是資方慣老闆、慣房東的角色。顏藝「面癱」是其特色。</p>
+                                </div>
+                            </div>
+                            <div id="pic3" class="member-pic">
+                                <div class="member-mask">
+                                    <h1>飯糰是一隻貓</h1>
+                                    <p>經常出現在影片裡的喵喵，乃靈魂角色。</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="member-text-grp">
+                            <div id="text1" class="member-text">
+                                <h1>鍾佳播</h1>
+                            </div>
+                            <div id="text2" class="member-text">
+                                <h1>陳奕凱</h1>
+                            </div>
+                            <div id="text3" class="member-text">
+                                <h1>飯糰</h1>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <section>
+            <div id="section5" class="sec-5">
+                <div class="influence-left">
+                    <div class="influence-text-1">
+                        <div class="text-mask">
+                            <p>2018年6月28日，「反正我很閒」頻道創立。</p>
+                            <p>2020年4月15日，發布影片<span>《業界大牌導演 頭上三把火！電影影視劇組工作出包！攝影師傻眼！全場驚呼》</span>
+                                在隔日流量大增，YouTube頻道訂閱數也急遽上升。</p>
+                            <p>2020年7月16日，頻道上傳了首支業配影片。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="influence-right">
+                    <div class="influence-text-2">
+                        <div class="text-mask">
+                            <p>隨著頻道在2020年4月底爆紅，以及臉書社團<span>羅馬競技生死鬥」</span>「的推波助瀾之下，羅馬競技生死鬥」成為高中與大專院校學生們爭相模仿的娛樂活動
+                                ，並且逐漸在全台擴散。</p>
+                            <p>迅速竄紅之後，頻道內各種角色也隨之被網友在網路上製作成迷因。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="middle-pic-3 parallax"></div>
+        </section>
+        <a href="#">
+            <div id="gototop"></div>
+        </a>
+    </main>
+    <footer>反正我很閒</footer>
+</body>
+
+</html>
